@@ -70,4 +70,7 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 
+    //pdfViewer
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
 }

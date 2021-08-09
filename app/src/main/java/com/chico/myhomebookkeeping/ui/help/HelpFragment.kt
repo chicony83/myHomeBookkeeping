@@ -1,5 +1,6 @@
 package com.chico.myhomebookkeeping.ui.help
 
+import android.graphics.pdf.PdfRenderer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,8 @@ class HelpFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var control: NavController
     private lateinit var navControlHelper: NavControlHelper
+
+    //    private val configuration = PdfRenderer
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,7 +35,8 @@ class HelpFragment : Fragment() {
         control = activity?.findNavController(R.id.nav_host_fragment)!!
 
         navControlHelper = NavControlHelper(control)
-
+        val pdfView = binding.pdfv
+        pdfView.fromAsset("pdfPage.pdf").load()
         when (control.previousBackStackEntry?.destination?.id) {
             R.id.nav_money_moving -> setTextInSomeTextArea("помощь с движением денег")
             R.id.nav_new_money_moving -> setTextInSomeTextArea("помощь с новой записью о движении денег")
